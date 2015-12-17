@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bad apple实验版本</title>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	#box{width:700px;height:468px;margin:10px auto;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="images/ASCII-00000001.jpg" id="badImg">
+	</div>
+	<audio id="playy"  src="badapple.mp3" autoplay="autoplay" loop="loop">
+	<script type="text/javascript">
+	var timer = null;
+	var num = 0;
+	
+	window.onload = function(){
+		changPic();
+	}
+	function changPic(){
+		var oImg = document.getElementById('badImg');
+		num++;
+		//ASCII-0000000 后缀不同  依据0的个执行判断条件
+		if(num <= 9){
+			oImg.src = "images/ASCII-0000000" + num + ".jpg";
+		}else if(num > 9 && num < 99){
+			oImg.src = "images/ASCII-000000" + num + ".jpg";
+		}else if(num > 99 && num < 999){
+			oImg.src = "images/ASCII-00000" + num + ".jpg";
+		}else if(num > 999){
+			oImg.src = "images/ASCII-0000" + num + ".jpg";
+			if(num == 3284){
+				num = 0;
+			}
+		}
+		console.log(num);
+		
+		setTimeout("changPic()",66.68696711327649);
+	}
+	</script>
+</body>
+</html>
